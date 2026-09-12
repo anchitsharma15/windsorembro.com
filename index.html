@@ -1,81 +1,498 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#090909">
+  <meta name="description" content="Windsor Embro — custom embroidered apparel, hats, school bags and statement pieces.">
+  <title>Windsor Embro | Custom Embroidery</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --red: #f10f2f;
+      --black: #070707;
+      --white: #f7f5f3;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       min-height: 100vh;
+      overflow-x: hidden;
+      color: var(--white);
+      background: var(--black);
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    .page-bg {
+      position: fixed;
+      inset: 0;
+      z-index: -3;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 73% 40%, rgba(130, 0, 22, .42), transparent 27%),
+        linear-gradient(135deg, #050505 0%, #171717 48%, #050505 100%);
+    }
+
+    .wave {
+      position: absolute;
+      left: -24vw;
+      width: 150vw;
+      height: 68vh;
+      border-radius: 45% 55% 48% 52%;
+      transform-origin: center;
+      will-change: transform;
+    }
+
+    .wave.one {
+      top: -38vh;
+      opacity: .8;
+      background: linear-gradient(
+        110deg,
+        rgba(241, 15, 47, .92),
+        rgba(107, 0, 20, .5) 48%,
+        rgba(10, 10, 10, .05)
+      );
+      animation: flowOne 15s ease-in-out infinite alternate;
+    }
+
+    .wave.two {
+      bottom: -47vh;
+      opacity: .62;
+      background: linear-gradient(
+        95deg,
+        rgba(100, 100, 108, .68),
+        rgba(18, 18, 20, .75) 44%,
+        rgba(224, 10, 44, .78)
+      );
+      animation: flowTwo 18s ease-in-out infinite alternate;
+    }
+
+    .wave.three {
+      top: 31vh;
+      left: -60vw;
+      opacity: .18;
+      background: linear-gradient(90deg, transparent, #b7b7bd 48%, transparent);
+      animation: flowThree 20s linear infinite;
+    }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      opacity: .16;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.23'/%3E%3C/svg%3E");
+    }
+
+    @keyframes flowOne {
+      to {
+        transform: translate3d(9vw, 7vh, 0) rotate(-4deg) scale(1.08);
+      }
+    }
+
+    @keyframes flowTwo {
+      to {
+        transform: translate3d(-8vw, -6vh, 0) rotate(5deg) scale(1.06);
+      }
+    }
+
+    @keyframes flowThree {
+      50% {
+        transform: translate3d(48vw, -9vh, 0) rotate(8deg);
+      }
+
+      100% {
+        transform: translate3d(96vw, 2vh, 0) rotate(-3deg);
+      }
+    }
+
+    @keyframes pulse {
+      50% {
+        opacity: .35;
+        transform: scale(.75);
+      }
+    }
+
+    @keyframes hover {
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px clamp(22px, 5vw, 76px);
+      background: linear-gradient(180deg, rgba(5, 5, 5, .8), transparent);
+      backdrop-filter: blur(3px);
+    }
+
+    .brand {
+      color: white;
+      font-size: .84rem;
+      font-weight: 900;
+      letter-spacing: .24em;
+      text-decoration: none;
+    }
+
+    .brand span {
+      color: var(--red);
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #d6d6da;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .status::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--red);
+      box-shadow: 0 0 14px var(--red);
+      animation: pulse 1.7s ease-in-out infinite;
+    }
+
+    main {
+      position: relative;
+    }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      padding: 110px 6vw 54px;
+      text-align: center;
+      isolation: isolate;
+    }
+
+    .hero-content {
+      width: min(1120px, 100%);
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      background: #0a0a0a;
-      color: #f0f0f0;
-      font-family: 'Inter', sans-serif;
-      text-align: center;
-      padding: 2rem;
     }
 
-    .badge {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      color: #888;
+    .eyebrow {
+      margin-bottom: 18px;
+      color: #d7d7dc;
+      font-size: clamp(.62rem, 1vw, .75rem);
+      font-weight: 700;
+      letter-spacing: .34em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 300;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      max-width: 14ch;
+      position: relative;
+      z-index: 3;
+      max-width: 1050px;
+      font-size: clamp(3rem, 9.5vw, 8.7rem);
+      font-weight: 900;
+      line-height: .82;
+      letter-spacing: -.075em;
+      text-transform: uppercase;
+      text-wrap: balance;
+      text-shadow: 0 18px 60px rgba(0, 0, 0, .75);
     }
 
-    h1 span {
-      font-weight: 600;
-      color: #fff;
+    h1 .outline {
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(255, 255, 255, .8);
     }
 
-    .divider {
-      width: 40px;
-      height: 2px;
-      background: #333;
-      margin: 2.5rem auto;
+    .hero-art {
+      position: relative;
+      z-index: 2;
+      width: min(820px, 92vw);
+      margin: -5px auto -12px;
+      filter: drop-shadow(0 34px 44px rgba(0, 0, 0, .65));
+      animation: hover 6s ease-in-out infinite;
+      mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
     }
 
-    p {
-      font-size: 1rem;
-      color: #666;
-      max-width: 36ch;
-      line-height: 1.7;
+    .intro {
+      position: relative;
+      z-index: 4;
+      max-width: 640px;
+      color: #c8c8cd;
+      font-size: clamp(.88rem, 1.4vw, 1.05rem);
+      line-height: 1.75;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 25px;
+    }
+
+    .chip {
+      padding: 9px 14px;
+      border: 1px solid rgba(255, 255, 255, .17);
+      border-radius: 99px;
+      background: rgba(9, 9, 10, .42);
+      color: #e9e9ec;
+      font-size: .65rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .future {
+      width: min(1180px, 88vw);
+      margin: 0 auto;
+      padding: 84px 0 110px;
+    }
+
+    .future-label {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      color: #a5a5ac;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+
+    .future-label::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: rgba(255, 255, 255, .14);
+    }
+
+    .future-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 12px;
+    }
+
+    .future-card {
+      min-height: 188px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 25px;
+      border: 1px solid rgba(255, 255, 255, .12);
+      background: linear-gradient(
+        145deg,
+        rgba(34, 34, 37, .72),
+        rgba(8, 8, 9, .58)
+      );
+      backdrop-filter: blur(18px);
+      transition: transform .3s ease, border-color .3s ease;
+    }
+
+    .future-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(241, 15, 47, .7);
+    }
+
+    .future-card:first-child {
+      background: linear-gradient(
+        145deg,
+        rgba(129, 0, 22, .7),
+        rgba(15, 15, 17, .62)
+      );
+    }
+
+    .card-no {
+      color: #9f9fa5;
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .16em;
+    }
+
+    .future-card h2 {
+      font-size: clamp(1.25rem, 2.1vw, 2rem);
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+
+    .future-card p {
+      margin-top: 10px;
+      color: #b8b8be;
+      font-size: .8rem;
+      line-height: 1.6;
     }
 
     footer {
-      position: fixed;
-      bottom: 1.5rem;
-      font-size: 0.75rem;
-      color: #444;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 26px clamp(22px, 5vw, 76px);
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      color: #85858c;
+      font-size: .64rem;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 720px) {
+      header {
+        padding-top: max(18px, env(safe-area-inset-top));
+      }
+
+      .status {
+        font-size: 0;
+      }
+
+      .status::after {
+        content: "Coming soon";
+        font-size: .6rem;
+      }
+
+      .hero {
+        padding-inline: 20px;
+      }
+
+      h1 {
+        font-size: clamp(3.2rem, 17vw, 5.7rem);
+        line-height: .86;
+      }
+
+      .hero-art {
+        width: 116vw;
+        max-width: none;
+        margin-top: 7px;
+      }
+
+      .future-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .future-card {
+        min-height: 150px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
+
 <body>
+  <div class="page-bg" aria-hidden="true">
+    <div class="wave one"></div>
+    <div class="wave two"></div>
+    <div class="wave three"></div>
+  </div>
 
-  <div class="badge">We're working on it</div>
+  <div class="grain" aria-hidden="true"></div>
 
-  <h1>Something <span>great</span><br>is coming soon</h1>
+  <header>
+    <a class="brand" href="#top" aria-label="Windsor Embro home">
+      WINDSOR<span>EMBRO</span>
+    </a>
 
-  <div class="divider"></div>
+    <div class="status">Collection in development</div>
+  </header>
 
-  <p>We're putting the finishing touches on our website. Check back soon.</p>
+  <main id="top">
+    <section class="hero" aria-labelledby="welcome-heading">
+      <div class="hero-content">
+        <p class="eyebrow">Custom threads · Original identity</p>
 
-  <footer>© 2026 — Anchit</footer>
+        <h1 id="welcome-heading">
+          WELCOME TO<br>
+          <span class="outline">WINDSOR EMBRO</span>
+        </h1>
 
+        <img
+          class="hero-art"
+          src="assets/embroidered-collection.webp"
+          alt="Custom embroidered black cap, tiger sweatshirt and school backpack"
+        >
+
+        <p class="intro">
+          Statement embroidery for people, teams and ideas that refuse to blend
+          in. Designed in Windsor. Made to be remembered.
+        </p>
+
+        <div class="chips" aria-label="Upcoming product categories">
+          <span class="chip">Headwear</span>
+          <span class="chip">School bags</span>
+          <span class="chip">Sweatshirts</span>
+          <span class="chip">Custom work</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="future" aria-labelledby="coming-next">
+      <p class="future-label" id="coming-next">Coming next</p>
+
+      <div class="future-grid">
+        <article class="future-card">
+          <span class="card-no">01 / DISCOVER</span>
+          <div>
+            <h2>Browse the catalog</h2>
+            <p>Explore curated drops and customizable embroidery pieces.</p>
+          </div>
+        </article>
+
+        <article class="future-card">
+          <span class="card-no">02 / CREATE</span>
+          <div>
+            <h2>Build your piece</h2>
+            <p>Choose a product, artwork and thread finish.</p>
+          </div>
+        </article>
+
+        <article class="future-card">
+          <span class="card-no">03 / ORDER</span>
+          <div>
+            <h2>Secure checkout</h2>
+            <p>Place and track your custom order online.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© 2026 Windsor Embro</span>
+    <span>Custom embroidery · Windsor, Ontario</span>
+  </footer>
 </body>
 </html>
