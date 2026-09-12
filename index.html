@@ -6,34 +6,26 @@
   <meta name="theme-color" content="#090909">
   <meta name="description" content="Windsor Embro — custom embroidered apparel, hats, school bags and statement pieces.">
   <title>Windsor Embro | Custom Embroidery</title>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
     :root {
-      --red: #f10f2f;
+           --red: #f10f2f;
+      --dark-red: #700014;
       --black: #070707;
+      --grey: #98989f;
       --white: #f7f5f3;
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       min-height: 100vh;
       overflow-x: hidden;
       color: var(--white);
       background: var(--black);
-      font-family: Inter, system-ui, sans-serif;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
 
     .page-bg {
@@ -48,10 +40,11 @@
 
     .wave {
       position: absolute;
-      left: -24vw;
       width: 150vw;
       height: 68vh;
+      left: -24vw;
       border-radius: 45% 55% 48% 52%;
+      filter: blur(1px);
       transform-origin: center;
       will-change: transform;
     }
@@ -59,24 +52,14 @@
     .wave.one {
       top: -38vh;
       opacity: .8;
-      background: linear-gradient(
-        110deg,
-        rgba(241, 15, 47, .92),
-        rgba(107, 0, 20, .5) 48%,
-        rgba(10, 10, 10, .05)
-      );
+      background: linear-gradient(110deg, rgba(241,15,47,.92), rgba(107,0,20,.5) 48%, rgba(10,10,10,.05));
       animation: flowOne 15s ease-in-out infinite alternate;
     }
 
     .wave.two {
       bottom: -47vh;
       opacity: .62;
-      background: linear-gradient(
-        95deg,
-        rgba(100, 100, 108, .68),
-        rgba(18, 18, 20, .75) 44%,
-        rgba(224, 10, 44, .78)
-      );
+      background: linear-gradient(95deg, rgba(100,100,108,.68), rgba(18,18,20,.75) 44%, rgba(224,10,44,.78));
       animation: flowTwo 18s ease-in-out infinite alternate;
     }
 
@@ -98,65 +81,38 @@
     }
 
     @keyframes flowOne {
-      to {
-        transform: translate3d(9vw, 7vh, 0) rotate(-4deg) scale(1.08);
-      }
+      to { transform: translate3d(9vw, 7vh, 0) rotate(-4deg) scale(1.08); }
     }
-
     @keyframes flowTwo {
-      to {
-        transform: translate3d(-8vw, -6vh, 0) rotate(5deg) scale(1.06);
-      }
+      to { transform: translate3d(-8vw, -6vh, 0) rotate(5deg) scale(1.06); }
     }
-
     @keyframes flowThree {
-      50% {
-        transform: translate3d(48vw, -9vh, 0) rotate(8deg);
-      }
-
-      100% {
-        transform: translate3d(96vw, 2vh, 0) rotate(-3deg);
-      }
-    }
-
-    @keyframes pulse {
-      50% {
-        opacity: .35;
-        transform: scale(.75);
-      }
-    }
-
-    @keyframes hover {
-      50% {
-        transform: translateY(-10px);
-      }
+      50% { transform: translate3d(48vw, -9vh, 0) rotate(8deg); }
+      100% { transform: translate3d(96vw, 2vh, 0) rotate(-3deg); }
     }
 
     header {
       position: fixed;
       top: 0;
-      right: 0;
       left: 0;
+      right: 0;
       z-index: 20;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       padding: 22px clamp(22px, 5vw, 76px);
-      background: linear-gradient(180deg, rgba(5, 5, 5, .8), transparent);
+      background: linear-gradient(180deg, rgba(5,5,5,.8), transparent);
       backdrop-filter: blur(3px);
     }
 
     .brand {
-      color: white;
+      color: #fff;
+      text-decoration: none;
       font-size: .84rem;
       font-weight: 900;
       letter-spacing: .24em;
-      text-decoration: none;
     }
-
-    .brand span {
-      color: var(--red);
-    }
+    .brand span { color: var(--red); }
 
     .status {
       display: flex;
@@ -168,7 +124,6 @@
       letter-spacing: .17em;
       text-transform: uppercase;
     }
-
     .status::before {
       content: "";
       width: 7px;
@@ -178,11 +133,9 @@
       box-shadow: 0 0 14px var(--red);
       animation: pulse 1.7s ease-in-out infinite;
     }
+    @keyframes pulse { 50% { opacity: .35; transform: scale(.75); } }
 
-    main {
-      position: relative;
-    }
-
+    main { position: relative; }
     .hero {
       min-height: 100svh;
       display: grid;
@@ -218,23 +171,23 @@
       letter-spacing: -.075em;
       text-transform: uppercase;
       text-wrap: balance;
-      text-shadow: 0 18px 60px rgba(0, 0, 0, .75);
+      text-shadow: 0 18px 60px rgba(0,0,0,.75);
     }
-
     h1 .outline {
       color: transparent;
-      -webkit-text-stroke: 1.5px rgba(255, 255, 255, .8);
+      -webkit-text-stroke: 1.5px rgba(255,255,255,.8);
     }
 
     .hero-art {
       position: relative;
       z-index: 2;
       width: min(820px, 92vw);
-      margin: -5px auto -12px;
-      filter: drop-shadow(0 34px 44px rgba(0, 0, 0, .65));
+      margin: clamp(-10px, -1vw, -2px) auto -12px;
+      filter: drop-shadow(0 34px 44px rgba(0,0,0,.65));
       animation: hover 6s ease-in-out infinite;
       mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
     }
+    @keyframes hover { 50% { transform: translateY(-10px); } }
 
     .intro {
       position: relative;
@@ -252,12 +205,11 @@
       gap: 9px;
       margin-top: 25px;
     }
-
     .chip {
       padding: 9px 14px;
-      border: 1px solid rgba(255, 255, 255, .17);
+      border: 1px solid rgba(255,255,255,.17);
       border-radius: 99px;
-      background: rgba(9, 9, 10, .42);
+      background: rgba(9,9,10,.42);
       color: #e9e9ec;
       font-size: .65rem;
       font-weight: 700;
@@ -271,7 +223,6 @@
       margin: 0 auto;
       padding: 84px 0 110px;
     }
-
     .future-label {
       display: flex;
       align-items: center;
@@ -283,75 +234,31 @@
       letter-spacing: .22em;
       text-transform: uppercase;
     }
-
-    .future-label::after {
-      content: "";
-      height: 1px;
-      flex: 1;
-      background: rgba(255, 255, 255, .14);
-    }
-
-    .future-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 12px;
-    }
-
+    .future-label::after { content: ""; height: 1px; flex: 1; background: rgba(255,255,255,.14); }
+    .future-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; }
     .future-card {
       min-height: 188px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 25px;
-      border: 1px solid rgba(255, 255, 255, .12);
-      background: linear-gradient(
-        145deg,
-        rgba(34, 34, 37, .72),
-        rgba(8, 8, 9, .58)
-      );
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(145deg, rgba(34,34,37,.72), rgba(8,8,9,.58));
       backdrop-filter: blur(18px);
       transition: transform .3s ease, border-color .3s ease;
     }
-
-    .future-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(241, 15, 47, .7);
-    }
-
-    .future-card:first-child {
-      background: linear-gradient(
-        145deg,
-        rgba(129, 0, 22, .7),
-        rgba(15, 15, 17, .62)
-      );
-    }
-
-    .card-no {
-      color: #9f9fa5;
-      font-size: .68rem;
-      font-weight: 700;
-      letter-spacing: .16em;
-    }
-
-    .future-card h2 {
-      font-size: clamp(1.25rem, 2.1vw, 2rem);
-      letter-spacing: -.045em;
-      text-transform: uppercase;
-    }
-
-    .future-card p {
-      margin-top: 10px;
-      color: #b8b8be;
-      font-size: .8rem;
-      line-height: 1.6;
-    }
+    .future-card:hover { transform: translateY(-5px); border-color: rgba(241,15,47,.7); }
+    .future-card:first-child { background: linear-gradient(145deg, rgba(129,0,22,.7), rgba(15,15,17,.62)); }
+    .card-no { color: #9f9fa5; font-size: .68rem; font-weight: 700; letter-spacing: .16em; }
+    .future-card h2 { font-size: clamp(1.25rem, 2.1vw, 2rem); letter-spacing: -.045em; text-transform: uppercase; }
+    .future-card p { margin-top: 10px; color: #b8b8be; font-size: .8rem; line-height: 1.6; }
 
     footer {
       display: flex;
       justify-content: space-between;
       gap: 20px;
       padding: 26px clamp(22px, 5vw, 76px);
-      border-top: 1px solid rgba(255, 255, 255, .1);
+      border-top: 1px solid rgba(255,255,255,.1);
       color: #85858c;
       font-size: .64rem;
       letter-spacing: .16em;
@@ -359,73 +266,32 @@
     }
 
     @media (max-width: 720px) {
-      header {
-        padding-top: max(18px, env(safe-area-inset-top));
-      }
-
-      .status {
-        font-size: 0;
-      }
-
-      .status::after {
-        content: "Coming soon";
-        font-size: .6rem;
-      }
-
-      .hero {
-        padding-inline: 20px;
-      }
-
-      h1 {
-        font-size: clamp(3.2rem, 17vw, 5.7rem);
-        line-height: .86;
-      }
-
-      .hero-art {
-        width: 116vw;
-        max-width: none;
-        margin-top: 7px;
-      }
-
-      .future-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .future-card {
-        min-height: 150px;
-      }
-
-      footer {
-        flex-direction: column;
-      }
+      header { padding-top: max(18px, env(safe-area-inset-top)); }
+      .status { font-size: 0; }
+      .status::after { content: "Coming soon"; font-size: .6rem; }
+      .hero { padding-inline: 20px; }
+      h1 { font-size: clamp(3.2rem, 17vw, 5.7rem); line-height: .86; }
+      .hero-art { width: 116vw; max-width: none; margin-top: 7px; }
+      .future-grid { grid-template-columns: 1fr; }
+      .future-card { min-height: 150px; }
+      footer { flex-direction: column; }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
     }
   </style>
 </head>
-
 <body>
   <div class="page-bg" aria-hidden="true">
     <div class="wave one"></div>
     <div class="wave two"></div>
     <div class="wave three"></div>
   </div>
-
   <div class="grain" aria-hidden="true"></div>
 
   <header>
-    <a class="brand" href="#top" aria-label="Windsor Embro home">
-      WINDSOR<span>EMBRO</span>
-    </a>
-
+    <a class="brand" href="#top" aria-label="Windsor Embro home">WINDSOR<span>EMBRO</span></a>
     <div class="status">Collection in development</div>
   </header>
 
@@ -433,23 +299,9 @@
     <section class="hero" aria-labelledby="welcome-heading">
       <div class="hero-content">
         <p class="eyebrow">Custom threads · Original identity</p>
-
-        <h1 id="welcome-heading">
-          WELCOME TO<br>
-          <span class="outline">WINDSOR EMBRO</span>
-        </h1>
-
-        <img
-          class="hero-art"
-          src="embroidered-collection.webp"
-          alt="Custom embroidered black cap, tiger sweatshirt and school backpack"
-        >
-
-        <p class="intro">
-          Statement embroidery for people, teams and ideas that refuse to blend
-          in. Designed in Windsor. Made to be remembered.
-        </p>
-
+        <h1 id="welcome-heading">WELCOME TO<br><span class="outline">WINDSOR EMBRO</span></h1>
+        <img class="hero-art" src="assets/embroidered-collection.webp" alt="Custom embroidered black cap, tiger sweatshirt and school backpack">
+        <p class="intro">Statement embroidery for people, teams and ideas that refuse to blend in. Designed in Windsor. Made to be remembered.</p>
         <div class="chips" aria-label="Upcoming product categories">
           <span class="chip">Headwear</span>
           <span class="chip">School bags</span>
@@ -461,30 +313,18 @@
 
     <section class="future" aria-labelledby="coming-next">
       <p class="future-label" id="coming-next">Coming next</p>
-
       <div class="future-grid">
         <article class="future-card">
           <span class="card-no">01 / DISCOVER</span>
-          <div>
-            <h2>Browse the catalog</h2>
-            <p>Explore curated drops and customizable embroidery pieces.</p>
-          </div>
+          <div><h2>Browse the catalog</h2><p>Explore curated drops and customizable embroidery pieces.</p></div>
         </article>
-
         <article class="future-card">
           <span class="card-no">02 / CREATE</span>
-          <div>
-            <h2>Build your piece</h2>
-            <p>Choose a product, artwork and thread finish.</p>
-          </div>
+          <div><h2>Build your piece</h2><p>Choose a product, artwork and thread finish.</p></div>
         </article>
-
         <article class="future-card">
           <span class="card-no">03 / ORDER</span>
-          <div>
-            <h2>Secure checkout</h2>
-            <p>Place and track your custom order online.</p>
-          </div>
+          <div><h2>Secure checkout</h2><p>Place and track your custom order online.</p></div>
         </article>
       </div>
     </section>
