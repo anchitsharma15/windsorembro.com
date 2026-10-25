@@ -1,6 +1,6 @@
 # Windsor Embro
 
-Responsive embroidery website for windsorembro.com, inspired by the image-led visual flow of lifeshots.in. Uses the existing Windsor Embro product and brand artwork.
+Responsive embroidery website for windsorembro.com, with an Apple-inspired white and cool-grey theme, system typography, blue calls to action and a custom woven-W logo. Uses the existing Windsor Embro product and brand artwork.
 
 ## Preview
 
