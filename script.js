@@ -10,23 +10,8 @@ document.querySelectorAll('[data-filter]').forEach(button => button.addEventList
   document.querySelectorAll('[data-filter]').forEach(filter => { const active = filter === button; filter.classList.toggle('active', active); filter.setAttribute('aria-pressed', String(active)); });
   let visible = 0;
   pieces.forEach(piece => { piece.hidden = button.dataset.filter !== 'all' && piece.dataset.category !== button.dataset.filter; if (!piece.hidden) visible++; });
-  document.querySelector('#result-count').textContent = `${visible} ${visible === 1 ? 'piece' : 'pieces'} shown`;
+  document.querySelector('#result-count').textContent = `${visible} ${visible === 1 ? 'story' : 'stories'} shown`;
 }));
-const dialog = document.querySelector('#piece-dialog');
-let selectedPiece;
-pieces.forEach(piece => piece.addEventListener('click', () => {
-  selectedPiece = piece;
-  document.querySelector('#dialog-title').textContent = piece.dataset.title;
-  document.querySelector('#dialog-description').textContent = piece.dataset.description;
-  const image = document.querySelector('#dialog-image'); image.src = piece.dataset.image; image.alt = piece.querySelector('img').alt;
-  document.querySelector('#dialog-picture').className = `picture ${piece.dataset.crop || 'stag'}`;
-  dialog.setAttribute('aria-labelledby', 'dialog-title'); dialog.showModal(); document.body.classList.add('modal-open');
-}));
-function closeDialog() { dialog.close(); }
-document.querySelector('.close-dialog').addEventListener('click', closeDialog);
-dialog.addEventListener('click', event => { if (event.target === dialog) { const bounds = dialog.getBoundingClientRect(); if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) closeDialog(); } });
-dialog.addEventListener('close', () => document.body.classList.remove('modal-open'));
-document.querySelector('#use-piece').addEventListener('click', () => { const mapping = {apparel:'Sweatshirt', headwear:'Headwear', bags:'Bag', signatures:'Something else'}; document.querySelector('#piece').value = mapping[selectedPiece.dataset.category]; closeDialog(); });
 document.querySelectorAll('[data-project]').forEach(link => link.addEventListener('click', () => { document.querySelector('#project').value = link.dataset.project; }));
 const form = document.querySelector('#brief-form');
 form.addEventListener('submit', event => {

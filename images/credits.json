@@ -1,0 +1,94 @@
+{
+  "source": "https://www.instagram.com/windsor.embro/",
+  "shop": "https://a.co/d/03yc8qak",
+  "photos": [
+    {
+      "code": "De5dg1wDu5x",
+      "kind": "p",
+      "category": "apparel",
+      "title": "A message worth wearing",
+      "alt": "A lavender hoodie with a small embroidered message and heart.",
+      "tag": "APPAREL \u00b7 PERSONALISED DETAILS",
+      "post": "https://www.instagram.com/windsor.embro/p/De5dg1wDu5x/",
+      "file": "images/De5dg1wDu5x.jpg"
+    },
+    {
+      "code": "DZiH3UxO7Zu",
+      "kind": "reel",
+      "category": "personal",
+      "title": "A portrait of Pedro",
+      "alt": "A dog portrait embroidered above the name Pedro on a sand-coloured sweatshirt.",
+      "tag": "PET PORTRAITS \u00b7 CUSTOM EMBROIDERY",
+      "post": "https://www.instagram.com/windsor.embro/reel/DZiH3UxO7Zu/",
+      "file": "images/DZiH3UxO7Zu.jpg"
+    },
+    {
+      "code": "DdF9yHTgTwm",
+      "kind": "reel",
+      "category": "headwear",
+      "title": "Your mark. Front and centre.",
+      "alt": "A yellow cap with a red embroidered letter B at the embroidery machine.",
+      "tag": "HEADWEAR \u00b7 LETTERING",
+      "post": "https://www.instagram.com/windsor.embro/reel/DdF9yHTgTwm/",
+      "file": "images/DdF9yHTgTwm.jpg"
+    },
+    {
+      "code": "Dc_jAaEAMIs",
+      "kind": "reel",
+      "category": "bags",
+      "title": "An identity that travels",
+      "alt": "A collection of black bags personalised with a white embroidered monogram.",
+      "tag": "BAGS \u00b7 BRANDED DETAILS",
+      "post": "https://www.instagram.com/windsor.embro/reel/Dc_jAaEAMIs/",
+      "file": "images/Dc_jAaEAMIs.jpg"
+    },
+    {
+      "code": "Dc2YOGFDo2V",
+      "kind": "p",
+      "category": "headwear",
+      "title": "A name they\u2019ll grow with",
+      "alt": "Baby hats embroidered with names in soft neutral colours.",
+      "tag": "BABY GIFTS \u00b7 PERSONALISED NAMES",
+      "post": "https://www.instagram.com/windsor.embro/p/Dc2YOGFDo2V/",
+      "file": "images/Dc2YOGFDo2V.jpg"
+    },
+    {
+      "code": "Dd_q0nkg8LD",
+      "kind": "reel",
+      "category": "bags",
+      "title": "Little things. All yours.",
+      "alt": "Clear pouches with embroidered lettering, including Beauty Stuff.",
+      "tag": "POUCHES \u00b7 PERSONALISED ACCESSORIES",
+      "post": "https://www.instagram.com/windsor.embro/reel/Dd_q0nkg8LD/",
+      "file": "images/Dd_q0nkg8LD.jpg"
+    },
+    {
+      "code": "DczVBn9OqmC",
+      "kind": "p",
+      "category": "apparel",
+      "title": "Everyday, with a little meaning",
+      "alt": "A cream crewneck sweatshirt with colourful embroidered text on a black background.",
+      "tag": "CREWNECKS \u00b7 TEXT IN THREAD",
+      "post": "https://www.instagram.com/windsor.embro/p/DczVBn9OqmC/",
+      "file": "images/DczVBn9OqmC.jpg"
+    },
+    {
+      "code": "Dep9TkCOe71",
+      "kind": "reel",
+      "category": "apparel",
+      "title": "A little seasonal spirit",
+      "alt": "Spooky Mama lettering embroidered on black fabric in a blue embroidery hoop.",
+      "tag": "SEASONAL DESIGNS \u00b7 IN THE MAKING",
+      "post": "https://www.instagram.com/windsor.embro/reel/Dep9TkCOe71/",
+      "file": "images/Dep9TkCOe71.jpg"
+    }
+  ],
+  "process_photo": {
+    "file": "images/DdoA_K2mBwJ.jpg",
+    "post": "https://www.instagram.com/windsor.embro/p/DdoA_K2mBwJ/"
+  },
+  "amazon_photo": {
+    "file": "images/personalised-crewneck-amazon.jpg",
+    "product": "https://www.amazon.ca/dp/B0HHLNTQ3C"
+  }
+}
